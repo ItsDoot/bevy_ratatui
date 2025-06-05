@@ -81,8 +81,7 @@ fn draw_scene_system(
             "Emulate marker is not present."
         });
         text.push_line(format!(
-            "Press 'r' to cycle release key policy, currently {:?}",
-            release_key
+            "Press 'r' to cycle release key policy, currently {release_key:?}",
         ));
 
         text.push_line("Press any key. Press 'q' to Quit.");
@@ -111,7 +110,7 @@ fn draw_scene_system(
         if let Some(key_presses) = bevy_keypresses {
             text.push_line("");
             for key_press in &key_presses.0 {
-                let code_string = format!("{:?}", key_press);
+                let code_string = format!("{key_press:?}");
                 text.push_line(format!("bevy {code_string} key is pressed!"));
             }
         }

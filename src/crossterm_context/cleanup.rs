@@ -1,8 +1,8 @@
 use bevy::prelude::*;
 
-use crate::RatatuiContext;
+// use crate::RatatuiContext;
 
-use super::{kitty::KittyEnabled, mouse::MouseEnabled};
+// use super::{kitty::KittyEnabled, mouse::MouseEnabled};
 
 /// Plugin responsible for cleaning up resources in the correct order when exiting.
 ///
@@ -11,13 +11,13 @@ use super::{kitty::KittyEnabled, mouse::MouseEnabled};
 pub struct CleanupPlugin;
 
 impl Plugin for CleanupPlugin {
-    fn build(&self, app: &mut App) {
-        app.add_observer(cleanup);
+    fn build(&self, _app: &mut App) {
+        // app.add_observer(cleanup);
     }
 }
 
-fn cleanup(_trigger: Trigger<AppExit>, mut commands: Commands) {
-    commands.remove_resource::<KittyEnabled>();
-    commands.remove_resource::<MouseEnabled>();
-    commands.remove_resource::<RatatuiContext>();
-}
+// fn cleanup(_trigger: On<AppExit>, mut commands: Commands) {
+//     commands.remove_resource::<KittyEnabled>();
+//     commands.remove_resource::<MouseEnabled>();
+//     commands.remove_resource::<RatatuiContext>();
+// }

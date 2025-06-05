@@ -31,7 +31,7 @@ pub struct RatatuiContext(pub DefaultContext);
 impl Drop for RatatuiContext {
     fn drop(&mut self) {
         if let Err(err) = DefaultContext::restore() {
-            eprintln!("Failed to restore terminal: {}", err);
+            eprintln!("Failed to restore terminal: {err}");
         }
     }
 }

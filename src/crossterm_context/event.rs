@@ -90,30 +90,30 @@ pub enum InputSet {
 }
 
 /// An event that is sent whenever an event is read from crossterm.
-#[derive(Debug, Deref, Event, PartialEq, Eq, Clone, Hash)]
+#[derive(Debug, Deref, BufferedEvent, Event, PartialEq, Eq, Clone, Hash)]
 pub struct CrosstermEvent(pub event::Event);
 
 /// An event that is sent whenever a key event is read from crossterm.
-#[derive(Debug, Deref, Event, PartialEq, Eq, Clone, Hash)]
+#[derive(Debug, Deref, BufferedEvent, Event, PartialEq, Eq, Clone, Hash)]
 pub struct KeyEvent(pub event::KeyEvent);
 
 /// An event that is sent whenever a mouse event is read from crossterm.
-#[derive(Debug, Clone, Copy, Event, PartialEq, Eq, Deref)]
+#[derive(Debug, Clone, Copy, BufferedEvent, Event, PartialEq, Eq, Deref)]
 pub struct MouseEvent(pub event::MouseEvent);
 
 /// An event that is sent when the terminal gains or loses focus.
-#[derive(Debug, Clone, Copy, Event, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, BufferedEvent, Event, PartialEq, Eq)]
 pub enum FocusEvent {
     Gained,
     Lost,
 }
 
 /// An event that is sent when the terminal is resized.
-#[derive(Debug, Clone, Copy, Event, PartialEq, Eq, Deref)]
+#[derive(Debug, Clone, Copy, BufferedEvent, Event, PartialEq, Eq, Deref)]
 pub struct ResizeEvent(pub Size);
 
 /// An event that is sent when text is pasted into the terminal.
-#[derive(Debug, Clone, Event, PartialEq, Eq, Deref)]
+#[derive(Debug, Clone, BufferedEvent, Event, PartialEq, Eq, Deref)]
 pub struct PasteEvent(pub String);
 
 /// System that reads events from crossterm and sends them to the `KeyEvent` event.

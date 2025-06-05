@@ -258,7 +258,7 @@ impl ReleaseKey {
                 let ReleaseKeyState::Timer(timer) = state else {
                     return false;
                 };
-                timer.finished()
+                timer.is_finished()
             }
             Immediate => true,
         }
